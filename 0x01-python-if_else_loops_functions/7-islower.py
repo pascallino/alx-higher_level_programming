@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 def islower(c):
     if c == "":
-        return False
+        return True
     elif len(c) == 0:
         return False
     elif (c >= 'a' and c <= 'z'):
