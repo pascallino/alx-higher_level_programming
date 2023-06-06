@@ -6,4 +6,4 @@ def uppercase(str):
             uppercase += chr(ord(ch) - 32)
         else:
             uppercase += ch
-    print(f"{uppercase:s}")
+    print("{:s}".format(uppercase))
