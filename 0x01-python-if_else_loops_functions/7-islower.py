@@ -1,10 +1,6 @@
 #!/usr/bin/python3
 def islower(c):
-    if c == "":
-        return True
-    elif len(c) == 0:
-        return False
-    elif (c >= 'a' and c <= 'z'):
+    if ord(c) >= 97 and ord(c) <= 122:
         return True
     else:
         return False
