@@ -1,16 +1,20 @@
-from pattern_matching import match
+#!/usr/bin/python3
+import sys
 
-def switch_case(argument):
-    match argument:
-        case 1:
-            # case 1
-            print("This is case 1")
-        case 2:
-            # case 2
-            print("This is case 2")
-        case 3:
-            # case 3
-            print("This is case 3")
-        case _:
-            # default case
-            print("This is the default case")
+from builtins import IndexError
+
+
+opt = ['+', '-', '*', '/']
+if not len(sys.argv) >= 4:
+    print("Usage: ./100-my_calculator.py <a> <operator> <b>")
+    sys.exit(1)
+elif len(sys.argv) >= 4:
+    if not sys.argv[2] in opt:
+        print("Unknown operator. Available operators: +, -, * and /")
+        sys.exit(1)
+a = int(sys.argv[1])
+b = int(sys.argv[3])
+ch = sys.argv[2]
+exp = f"{a} {ch} {b}"
+res = eval(exp)
+print("{} {} {} = {}".format(a, ch, b, res))
