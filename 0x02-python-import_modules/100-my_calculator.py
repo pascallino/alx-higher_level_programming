@@ -12,9 +12,9 @@ if __name__ == '__main__':
         if not sys.argv[2] in opt:
             print("Unknown operator. Available operators: +, -, * and /")
             sys.exit(1)
+    ops = {"+": add, "-": sub, "*": mul, "/": div}
     a = int(sys.argv[1])
     b = int(sys.argv[3])
     ch = sys.argv[2]
-    exp = f"{a} {ch} {b}"
-    res = eval(exp)
+    res = int(ops[ch](a, b))
     print("{} {} {} = {}".format(a, ch, b, res))
