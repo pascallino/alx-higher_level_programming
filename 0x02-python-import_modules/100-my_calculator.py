@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 import sys
+from calculator_1 import add, sub, mul, div
 
-from builtins import IndexError
 
 if __name__ == '__main__':
     opt = ['+', '-', '*', '/']
