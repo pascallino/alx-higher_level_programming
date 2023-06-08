@@ -5,10 +5,10 @@ from calculator_1 import add, sub, mul, div
 
 if __name__ == '__main__':
     opt = ['+', '-', '*', '/']
-    if not len(sys.argv) >= 4:
+    if not len(sys.argv) == 4:
         print("Usage: ./100-my_calculator.py <a> <operator> <b>")
         sys.exit(1)
-    elif len(sys.argv) >= 4:
+    elif len(sys.argv) == 4:
         if not sys.argv[2] in opt:
             print("Unknown operator. Available operators: +, -, * and /")
             sys.exit(1)
