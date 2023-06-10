@@ -1,5 +1,6 @@
 #include <Python.h>
-#include "listobject.h"
+#include <object.h>
+#include <listobject.h>
 void print_python_list_info(PyObject *p);
 /**
  * print_python_list_info - ===========
@@ -11,54 +12,17 @@ void print_python_list_info(PyObject *p)
 {
 	Py_ssize_t size = PyList_Size(p);
 	Py_ssize_t i;
-	PyObject *item, *repr;
+	PyObject *item;
+	PyListObject *list = (PyListObject *)p;
+	 Py_ssize_t allocated = list->allocated;
 	const char *str;
 
-	printf("List size: %zd\n", size);
-
-	printf("List elements:\n");
-	for (i = 0; i < size; i++) 
+	printf("[*] Size of the Python List = %ld\n", size);
+	printf("[*] Allocated = %ld\n", allocated);
+	for (i = 0; i < size; i++)
 	{
 		item = PyList_GetItem(p, i);
-		repr = PyObject_Repr(item);
-		str = PyUnicode_AsUTF8(repr);
-
-		if (PyLong_Check(item))
-		{
-			printf("%zd (int): %s\n", i, str);
-		}
-		else if (PyFloat_Check(item))
-		{
-			printf("%zd (float): %s\n", i, str);
-		}
-		else if (PyUnicode_Check(item))
-		{
-			printf("%zd (str): %s\n", i, str);
-		}
-		else if (PyTuple_Check(item))
-		{
-			printf("%zd (tuple): %s\n", i, str);
-		}
-		else if (PyList_Check(item))
-		{
-			printf("%zd (list): %s\n", i, str);
-		}
-		else if (PyDict_Check(item))
-		{
-			printf("%zd (dict): %s\n", i, str);
-		}
-		else if (PyBool_Check(item))
-		{
-			printf("%zd (bool): %s\n", i, str);
-		}
-		else if (item == Py_None)
-		{
-			printf("%zd (None): %s\n", i, str);
-		}
-		else
-		{
-			printf("%zd (unknown): %s\n", i, str);
-		}
-		Py_XDECREF(repr);
+		str = Py_TYPE(item)->tp_name;
+		printf("Element %ld: %s\n", i, str);
 	}
 }
