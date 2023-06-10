@@ -1,44 +1,84 @@
 #include <stdio.h>
 #include "lists.h"
-/* define the struct */
-int is_palindrome(listint_t **head);
-/* 1 -> 2-> 3 -> 2 -> 1 -> NULL */
-/**
- * is_palindrome - ==========
- * @head: ===================
- * Return: ==============
- */
-int is_palindrome(listint_t **head)
+
+listint_t* reverseList(listint_t* head);
+int is_palindrome(listint_t** head);
+
+int is_palindrome(listint_t** head) 
 {
-	listint_t *curr = *head;
-	listint_t *curr_ = *head;
-	int curr2[arr];
-	int i = 0;
-	int is_palindrome = 1;
+	listint_t* p1;
+	listint_t* secondHalf;
+	listint_t* p2;
+	listint_t* slow = *head;
+	listint_t* fast = *head;
+	listint_t* prev = NULL;
+	listint_t* mid = NULL;
+	int isPalindrome = 1;
 
-	if (curr->next == NULL || curr == NULL || !curr)
-		return (is_palindrome);
+	/* Edge case: Empty list */
+	if (*head == NULL || (*head)->next == NULL)
+		return (1);
 
-	while (curr)
+	/* Find the middle node using slow and fast pointers */
+	while (fast != NULL && fast->next != NULL) 
 	{
-	/*	printf("%d --> ", curr->age); */
-		curr2[i] = curr->n;
-		curr = curr->next;
-		i++;
+		fast = fast->next->next;
+		prev = slow;
+		slow = slow->next;
 	}
-	if (i - 1 % 2 == 0)
-		return (0);
-	i--;
-	/* lets compare the reversed array and list now */
-	while (curr_)
+
+	/* Handle odd length by skipping the middle node*/
+	if (fast != NULL)
 	{
-		if (curr2[i] != curr_->n)
-		{
-			is_palindrome = 0;
-			return (is_palindrome);
+		mid = slow;
+		slow = slow->next;
+	}
+
+	/*Reverse the second half of the linked list*/
+	prev->next = NULL;
+	secondHalf = reverseList(slow);
+
+	/*Compare the first and second halves of the linked list*/
+	p1 = *head;
+	p2 = secondHalf;
+	while (p1 != NULL && p2 != NULL)
+	{
+		if (p1->n != p2->n) {
+			isPalindrome = 0;
+			break;
 		}
-		curr_ = curr_->next;
-		i--;
+		p1 = p1->next;
+		p2 = p2->next;
 	}
-	return (is_palindrome);
+
+	/*Restore the original linked list by reversing the second half again*/
+	prev->next = reverseList(secondHalf);
+	if (mid != NULL)
+	{
+		prev->next->next = mid;
+	}
+	else
+	{
+		prev->next->next = NULL;
+	}
+
+	return (isPalindrome);
+}
+
+/* Helper function to reverse a linked list*/
+listint_t* reverseList(listint_t* head)
+{
+	listint_t* prev = NULL;
+	listint_t* current = head;
+	listint_t* next = NULL;
+
+	while (current != NULL)
+	{
+		next = current->next;
+		current->next = prev;
+		prev = current;
+		current = next;
+	}
+
+	return (prev);
 }
