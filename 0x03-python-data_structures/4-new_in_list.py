@@ -1,4 +1,4 @@
-#!/asr/bin/python3
+#!/usr/bin/python3
 def new_in_list(my_list, idx, element):
     # my_list2 = list.copy(my_list)
     my_list2 = []
