@@ -26,6 +26,8 @@ int is_palindrome(listint_t **head)
 		curr = curr->next;
 		i++;
 	}
+	if (i - 1 % 2 == 0)
+		return (0);
 	i--;
 	/* lets compare the reversed array and list now */
 	while (curr_)
