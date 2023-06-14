@@ -15,7 +15,6 @@ void print_python_bytes(PyObject *p)
 {
 	PyBytesObject *bytesObj;
 	Py_ssize_t size, i;
-	char *content;
 	char *strcontent;
 	char *bytes;
 
@@ -27,25 +26,24 @@ void print_python_bytes(PyObject *p)
 	}
 	bytesObj = (PyBytesObject *)p;
 	size = bytesObj->ob_base.ob_size;
-	content = bytesObj->ob_sval;
 	strcontent = PyBytes_AsString(p);
-	printf("size: %ld\n", size);
-	printf("trying string: %s\n", strcontent);
+	printf(" size: %ld\n", size);
+	printf(" trying string: %s\n", strcontent);
 	if (size > 0)
 	{
 		if (size > 10)
 		{
-			printf("first 10 bytes: ");
+			printf(" first 10 bytes: ");
 			size = 9;
 		}
 		else if (size > 0 && size <= 10)
 		{
-			printf("first %ld bytes: ", size + 1);
+			printf(" first %ld bytes: ", size + 1);
 		}
 		bytes = PyBytes_AsString(p);
 		for (i = 0; i < size + 1; i++)
 		{
-			printf("%02x ", (unsigned char)bytes[i]);
+			printf(" %02x", (unsigned char)bytes[i]);
 		}
 	}
 	printf("\n");
