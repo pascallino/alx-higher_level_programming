@@ -19,6 +19,7 @@ void print_python_bytes(PyObject *p)
 	char *strcontent;
 	char *bytes;
 
+	fflush(stdout);
 	printf("[.] bytes object info\n");
 	if (!PyBytes_Check(p))
 	{
@@ -83,6 +84,7 @@ void print_python_list(PyObject *p)
 	PyListObject *list;
 	PyObject *obj;
 
+	fflush(stdout);
 	size = ((PyVarObject *)(p))->ob_size;
 	list = (PyListObject *)p;
 
