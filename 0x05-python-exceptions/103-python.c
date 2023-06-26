@@ -45,7 +45,7 @@ void print_python_bytes(PyObject *p)
 		bytes = (assert(PyBytes_Check(p)), (((PyBytesObject *)(p))->ob_sval));
 		for (i = 0; i < size + 1; i++)
 		{
-			printf(" %02hhxx", (unsigned char)bytes[i]);
+			printf(" %02hhxx", bytes[i]);
 		}
 	}
 	printf("\n");
