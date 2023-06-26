@@ -2,9 +2,10 @@
 #include <object.h>
 #include <listobject.h>
 #include <bytesobject.h>
+#include <floatobject.h>
 void print_python_list(PyObject *p);
 void print_python_bytes(PyObject *p);
-
+void print_python_float(PyObject *p);
 /**
  * print_python_bytes - ===========
  * @p: ============
@@ -48,6 +49,8 @@ void print_python_bytes(PyObject *p)
 	}
 	printf("\n");
 }
+
+
 /**
  * print_python_list - ===========
  * @p: ============
@@ -64,6 +67,11 @@ void print_python_list(PyObject *p)
 	list = (PyListObject *)p;
 
 	printf("[*] Python list info\n");
+	if (!PyList_Check(p))
+	{
+		printf("  [ERROR] Invalid List Object\n");
+		return;
+	}
 	printf("[*] Size of the Python List = %ld\n", size);
 	printf("[*] Allocated = %ld\n", list->allocated);
 
@@ -73,5 +81,8 @@ void print_python_list(PyObject *p)
 		printf("Element %ld: %s\n", i, ((obj)->ob_type)->tp_name);
 		if (PyBytes_Check(obj))
 			print_python_bytes(obj);
+		if (PyFloat_Check(obj))
+			print_python_float(obj);
+
 	}
 }
