@@ -43,7 +43,7 @@ void print_python_bytes(PyObject *p)
 		{
 			printf("  first %ld bytes:", size + 1);
 		}
-		bytes = PyBytes_AsString(p);
+		bytes = (assert(PyBytes_Check(p)), (((PyBytesObject *)(p))->ob_sval));
 		for (i = 0; i < size + 1; i++)
 		{
 			printf(" %02x", (unsigned char)bytes[i]);
