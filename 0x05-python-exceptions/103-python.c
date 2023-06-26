@@ -89,11 +89,8 @@ void print_python_list(PyObject *p)
 	list = (PyListObject *)p;
 
 	printf("[*] Python list info\n");
-	if (!PyList_CheckExact(p))
+	if (PyList_CheckExact(p))
 	{
-		printf("  [ERROR] Invalid List Object\n");
-		return;
-	}
 	printf("[*] Size of the Python List = %ld\n", size);
 	printf("[*] Allocated = %ld\n", list->allocated);
 
@@ -106,5 +103,10 @@ void print_python_list(PyObject *p)
 		if (PyFloat_Check(obj))
 			print_python_float(obj);
 
+	}
+	}
+	else
+	{
+		  printf("  [ERROR] Invalid List Object\n");
 	}
 }
