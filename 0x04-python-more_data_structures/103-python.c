@@ -33,12 +33,12 @@ void print_python_bytes(PyObject *p)
 	{
 		if (size > 10)
 		{
-			printf("  first 10 bytes: ");
+			printf("  first 10 bytes:");
 			size = 9;
 		}
 		else if (size > 0 && size <= 10)
 		{
-			printf("  first %ld bytes: ", size + 1);
+			printf("  first %ld bytes:", size + 1);
 		}
 		bytes = PyBytes_AsString(p);
 		for (i = 0; i < size + 1; i++)
