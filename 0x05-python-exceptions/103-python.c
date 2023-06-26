@@ -21,14 +21,13 @@ void print_python_bytes(PyObject *p)
 
 	fflush(stdout);
 	printf("[.] bytes object info\n");
-	if (!PyBytes_Check(p))
+	if (!PyBytes_CheckExact(p))
 	{
 		printf("  [ERROR] Invalid Bytes Object\n");
 		return;
 	}
 	bytesObj = (PyBytesObject *)p;
 	size = bytesObj->ob_base.ob_size;
-	/*strcontent = PyBytes_AsString(p);*/
 	strcontent = (assert(PyBytes_Check(p)), (((PyBytesObject *)(p))->ob_sval));
 	printf("  size: %ld\n", size);
 	printf("  trying string: %s\n", strcontent);
@@ -90,7 +89,7 @@ void print_python_list(PyObject *p)
 	list = (PyListObject *)p;
 
 	printf("[*] Python list info\n");
-	if (!PyList_Check(p))
+	if (!PyList_CheckExact(p))
 	{
 		printf("  [ERROR] Invalid List Object\n");
 		return;
