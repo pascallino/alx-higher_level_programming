@@ -28,7 +28,8 @@ void print_python_bytes(PyObject *p)
 	}
 	bytesObj = (PyBytesObject *)p;
 	size = bytesObj->ob_base.ob_size;
-	strcontent = PyBytes_AsString(p);
+	/*strcontent = PyBytes_AsString(p);*/
+	strcontent = (assert(PyBytes_Check(p)), (((PyBytesObject *)(p))->ob_sval));
 	printf("  size: %ld\n", size);
 	printf("  trying string: %s\n", strcontent);
 	if (size > 0)
