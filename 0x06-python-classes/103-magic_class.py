@@ -4,6 +4,7 @@ import math
 
 
 class MagicClass:
+    """This represents a circle"""
     def __init__(self, radius):
         self.__radius = 0
         if type(radius) not in [int, float]:
