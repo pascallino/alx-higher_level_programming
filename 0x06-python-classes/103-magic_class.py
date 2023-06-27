@@ -1,9 +1,11 @@
 #!/usr/bin/python3
+"""Defines a class MagicClass"""
 import math
 
 
 class MagicClass:
-    def __init__(self, radius):
+    """This represents a circle"""
+    def __init__(self, radius=0):
         self.__radius = 0
         if type(radius) not in [int, float]:
             raise TypeError('radius must be a number')
