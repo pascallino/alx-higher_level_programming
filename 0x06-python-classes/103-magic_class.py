@@ -5,7 +5,7 @@ import math
 
 class MagicClass:
     """This represents a circle"""
-    def __init__(self, radius):
+    def __init__(self, radius=0):
         self.__radius = 0
         if type(radius) not in [int, float]:
             raise TypeError('radius must be a number')
