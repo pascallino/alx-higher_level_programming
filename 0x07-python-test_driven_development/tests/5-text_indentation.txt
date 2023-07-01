@@ -5,15 +5,15 @@ Using ``text_indentation``
 -------------------
 
 Importing the function from the module:
-	>>> text_indentation = __import__("5-text_indentation").text_indentation
+	>>> text_indentation = __import__("5-text_indentation2").text_indentation
 
 Checking for module docstring:
-	 >>> m = __import__("5-text_indentation").__doc__
+	 >>> m = __import__("5-text_indentation2").__doc__
 	 >>> len(m) > 1
 	 True
 
 Checking for function docstring:
-	 >>> f = __import__("5-text_indentation").text_indentation.__doc__
+	 >>> f = __import__("5-text_indentation2").text_indentation.__doc__
          >>> len(f) > 1
          True
 
