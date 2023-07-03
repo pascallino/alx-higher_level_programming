@@ -13,13 +13,19 @@ class Rectangle:
         Rectangle.number_of_instances += 1
 
     def __str__(self):
-        str = ""
+        """Return the printable representation of the Rectangle.
+
+        Represents the rectangle with the # character.
+        """
+        if self.__width == 0 or self.__height == 0:
+            return ("")
+
+        rect = []
         for i in range(self.__height):
-            for j in range(self.__width):
-                str += Rectangle.print_symbol
+            [rect.append(str(self.print_symbol)) for j in range(self.__width)]
             if i != self.__height - 1:
-                str += "\n"
-        return str
+                rect.append("\n")
+        return ("".join(rect))
 
     def __repr__(self):
         """ repr """
