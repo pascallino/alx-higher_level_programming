@@ -12,6 +12,7 @@ class Rectangle:
         Rectangle.number_of_instances += 1
 
     def __str__(self):
+        """ __str__ """
         str = ""
         for i in range(self.__height):
             for j in range(self.__width):
