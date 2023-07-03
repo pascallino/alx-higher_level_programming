@@ -9,6 +9,7 @@ class Rectangle:
         self.width = width
 
     def __str__(self):
+        """ __str__ """
         str = ""
         for i in range(self.__height):
             for j in range(self.__width):
@@ -18,6 +19,7 @@ class Rectangle:
         return str
 
     def __repr__(self):
+        """ __repr__ """
         return f"Rectangle({self.__width}, {self.__height})"
 
     @property
