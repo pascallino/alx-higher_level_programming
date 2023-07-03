@@ -4,6 +4,7 @@
 
 class Rectangle:
     number_of_instances = 0
+    """ public intance variable number_of_instances (int) """
     """ A class that should define a redctangle """
     def __init__(self, width=0, height=0):
         """ __init__ """
