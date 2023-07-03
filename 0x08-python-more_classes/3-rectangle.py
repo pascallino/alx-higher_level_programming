@@ -9,7 +9,10 @@ class Rectangle:
         self.width = width
 
     def __str__(self):
+        """ ___str__ """
         str = ""
+        if self.__height == 0 or self.__width == 0:
+            return ""
         for i in range(self.__height):
             for j in range(self.__width):
                 str += "#"
