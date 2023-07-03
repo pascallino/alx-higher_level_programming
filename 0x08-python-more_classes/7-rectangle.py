@@ -3,9 +3,10 @@
 
 
 class Rectangle:
+    """ A class that should define a redctangle """
     number_of_instances = 0
     print_symbol = '#'
-    """ A class that should define a redctangle """
+
     def __init__(self, width=0, height=0):
         """ __init__ """
         self.height = height
