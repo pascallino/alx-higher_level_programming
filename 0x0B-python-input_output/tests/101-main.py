@@ -3,6 +3,7 @@ import random
 import sys
 from time import sleep
 import datetime
+sys.path.append("..")
 
 for i in range(10000):
     sleep(random.random())
