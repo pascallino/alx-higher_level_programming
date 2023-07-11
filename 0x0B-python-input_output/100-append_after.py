@@ -3,18 +3,13 @@
 
 
 def append_after(filename="", search_string="", new_string=""):
-    """ function to append text after the serach string """
+    """ Function to append text after the search string in a file """
     with open(filename, 'r') as file:
         lines = file.readlines()
 
-        str = ""
-        count = -1
-        for line in lines:i
-            words = line.split()
-            for word in words:
-                if word == search_string:
-                    count += 1
-                    lines.insert(count, new_string)
-                    break
+    for i in range(len(lines)):
+        if search_string in lines[i]:
+            lines.insert(i + 1, new_string)
+
     with open(filename, 'w') as file:
-        file.write(''.join(lines))
+        file.writelines(lines)
