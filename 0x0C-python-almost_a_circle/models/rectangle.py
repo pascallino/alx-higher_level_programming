@@ -10,7 +10,6 @@ class Rectangle(Base):
         self.height = height
         self.x = x
         self.y = y
-        self.id = id
         super().__init__(self.id)
 
     def __str__(self):
@@ -102,7 +101,7 @@ class Rectangle(Base):
                 str = str + '#'
             str = str + '\n'
         print("{}".format(str), end="")
-    
+
     def update(self, *args):
         """ update no key arguments """
         if args and len(args) > 0:
