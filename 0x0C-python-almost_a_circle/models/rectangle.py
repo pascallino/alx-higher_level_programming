@@ -10,7 +10,7 @@ class Rectangle(Base):
         self.height = height
         self.x = x
         self.y = y
-        super().__init__(self.id)
+        super().__init__(id)
 
     def __str__(self):
         """ instance representation of the object """
