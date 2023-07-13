@@ -16,7 +16,7 @@ class Rectangle(Base):
     def __str__(self):
         """ instance representation of the object """
         str = f"[Rectangle] ({self.id}) {self.x}/{self.y} - "\
-            "{self.width}/{self.height}"
+            f"{self.width}/{self.height}"
         return str
 
     @property
