@@ -13,6 +13,12 @@ class Rectangle(Base):
         self.id = id
         super().__init__(self.id)
 
+    def __str__(self):
+        """ instance representation of the object """
+        str = f"[Rectangle] ({self.id}) {self.x}/{self.y} - "\
+            "{self.width}/{self.height}"
+        return str
+
     @property
     def width(self):
         """ width getter """
@@ -87,8 +93,8 @@ class Rectangle(Base):
         if self.width == 0 or self.height == 0:
             print(str)
             return
-        for i in range(height):
-            for j in range(width):
+        for i in range(self.height):
+            for j in range(self.width):
                 str = str + '#'
             str = str + '\n'
         print("{}".format(str), end="")
