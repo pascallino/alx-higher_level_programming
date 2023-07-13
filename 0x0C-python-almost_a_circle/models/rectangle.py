@@ -93,8 +93,20 @@ class Rectangle(Base):
         if self.width == 0 or self.height == 0:
             print(str)
             return
+        # for y in range(self.y):
+        # str = str + "\n"
         for i in range(self.height):
+            # for x in range(self.x):
+            # str = str + " "
             for j in range(self.width):
                 str = str + '#'
             str = str + '\n'
         print("{}".format(str), end="")
+    
+    def update(self, *args):
+        """ update no key arguments """
+        if args and len(args) > 0:
+            a = 0
+            for arg in args:
+                if a == 0:
+                    if arg is None:
