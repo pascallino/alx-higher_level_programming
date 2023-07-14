@@ -42,11 +42,16 @@ class Base:
         if json_string is None or json_string == "[]":
             return []
         return json.loads(json_string)
+
     @classmethod
     def create(cls, **dictionary):
-        """ self initialization of an object and setting attributes 
+        """ self initialization of an object and setting attributes
         within the class using the update method
         """
-        dummy_instance = cls()
-        dummy_instance.update(**dictionary)
-        return dummy_instance
+        if dictionary and dictionary != {}:
+            if cls.__name__ == "Rectangle":
+                dummy_instance = cls(3, 4)
+            else:
+                dummy_instance = cls(3)
+                dummy_instance.update(**dictionary)
+                return dummy_instance
