@@ -53,9 +53,10 @@ class Base:
                 dummy_instance = cls(3, 4)
             else:
                 dummy_instance = cls(3)
-                dummy_instance.update(**dictionary)
-                return dummy_instance
-     @classmethod
+            dummy_instance.update(**dictionary)
+            return dummy_instance
+
+    @classmethod
     def load_from_file(cls):
         """Return a list of classes instantiated from a file of JSON strings..
         """
